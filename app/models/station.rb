@@ -42,11 +42,11 @@ class Station < ActiveRecord::Base
   end
 
   def self.most_rides_as_starting_place
-    #Trip.group(:end_station_name).order('count_id DESC').count('id').first.last
+    Trip.group(:end_station_name).order('count_id DESC').count('id').first.first
   end
-################# USE ACTIVE RECORD HERE ##########
+
   def self.most_rides_as_ending_place
-    Trip.group(:start_station_name).order('count_id DESC').count('id').first.last
+    Trip.group(:start_station_name).order('count_id DESC').count('id').first.first
   end
 
  def number_of_starting_rides
@@ -59,24 +59,17 @@ class Station < ActiveRecord::Base
 
  def most_frequent_destination_station
    trips_starting_here.group(:end_station_name).count.invert.max
-   # trips_starting_here.select("trips.*, count(end_station_id) AS station_count")
-   # .group(:end_station_name, :id)
-   # .order("station_count")
-   # .limit(1).first.end_station_name
  end
 
  def most_frequent_origination_station
     trips_ending_here.group(:start_station_name).count.invert.max
-    # trips_ending_here.select("trips.*, count(start_station_id) AS station_count")
-    # .group(:start_station_name, :id)
-    # .order("station_count")
-    # .limit(1).first.start_station_name
  end
 
  def date_with_most_trips
    trips_starting_here.group("DATE_TRUNC('day',start_date)").count.transform_keys do |key|
      key.to_date
    end.invert.max
+   #move block to views
  end
 
  def most_frequent_zipcode_starting_here

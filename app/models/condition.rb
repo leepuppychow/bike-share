@@ -20,11 +20,15 @@ class Condition < ActiveRecord::Base
 
 
   def self.highest_number_of_rides_in_temperature_range(range)
-    joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max.first
+    if joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max
+      joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max.first
+    end
   end
 
   def self.lowest_number_of_rides_in_temperature_range(range)
-    joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min.first
+    if joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min
+      joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min.first
+    end
   end
 
   def self.highest_max_temperature_of_all_days
@@ -49,11 +53,15 @@ class Condition < ActiveRecord::Base
   end
 
   def self.highest_number_of_rides_in_precipitation_range(range)
-    joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.max.first
+    if joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.max
+     joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.max.first
+    end
   end
 
   def self.lowest_number_of_rides_in_precipitation_range(range)
-    joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.min.first
+    if joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.min
+      joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.min.first
+    end
   end
 
   def self.maximum_precipitation

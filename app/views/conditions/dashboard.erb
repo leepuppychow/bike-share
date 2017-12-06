@@ -1,9 +1,63 @@
-<h1> Weather Dashboard </h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/weather_dashboard.css">
+</head>
 
-<a href='/'>Home</a>
-<a href='/conditions'>Weather Index</a>
-<a href='/stations'>Stations</a>
-<a href='/trips'>Trips</a>
+<body>
+
+<div class="container">
+    <header>
+      <h1>Weather Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="/conditions"> Conditions </a></li>
+          <li><a href="/trips"> Trips </a></li>
+          <li><a href="/stations"> Stations </a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <table>
+      <tr>
+        <th> Max Temperature </th>
+        <th> Average Number of Rides: </th>
+        <th> Highest Number of Rides: </th>
+        <th> Lowest Number of Rides: </th>
+      </tr> 
+      <tr>
+        <th> 45-54 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(45) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(45) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(45) %></th>
+      </tr>
+      <tr>
+        <th> 55-64 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(55) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(55) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(55) %></th>
+      </tr>
+      <tr>
+        <th> 65-74 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(65) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(65) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(65) %></th>
+      </tr>
+      <tr>
+        <th> 75-84 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(75) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(75) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(75) %></th>
+      </tr>
+      <tr>
+        <th> 85-94 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(85) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(85) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(85) %></th>
+      </tr>
+    </table>
+ </div>
+</body>
+
 
 
 Number of trips based on temperature

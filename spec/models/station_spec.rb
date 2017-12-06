@@ -123,7 +123,7 @@ describe Station do
     end
     it "most frequent zipcode starting here" do
 
-      expect(@station.most_frequent_zipcode_starting_here).to eq([1, 94127])
+      expect(@station.most_frequent_zipcode_starting_here).to eq([1, "94127"])
       expect(@station.most_frequent_zipcode_starting_here.class).to eq(Array)
     end
     it "most frequent bike id starting here" do 
