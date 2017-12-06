@@ -71,5 +71,11 @@ class Trip < ActiveRecord::Base
     group("DATE_TRUNC('day',start_date)").count.invert.min
   end
 
+  def self.weather_on_day_with_most_rides
+    "NEED TO COMPLETE"
+  end
 
+  def self.weather_on_day_with_least_rides
+    "NEED TO COMPLETE"
+  end
 end
