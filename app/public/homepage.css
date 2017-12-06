@@ -29,15 +29,9 @@ section{
   text-align: center;
   height: 100px;
   width: 150px;
-  background: rgba(60,60,60,0.4);
+  background: black;
   margin: 10px;
   border-radius: 50%;
-}
-
-section:hover{
-  background-color: black;
-  opacity: 0.9;
-  transition-duration: 0.5s;
 }
 
 section a{
@@ -45,4 +39,9 @@ section a{
   text-decoration: none;
   color: white;
   font-size: 24px;
+}
+
+section a:hover{
+  color: orange;
+  transition-duration: 0.8s;
 }

@@ -37,7 +37,7 @@ trips.each do |trip|
               subscription_type: trip["subscription_type"],
               zip_code: trip["zip_code"].to_s)
 
-  end  # condition_id: Condition.find_by(date: trip["start_date"]))
+  end 
 
 
 conditions.each do |condition|
