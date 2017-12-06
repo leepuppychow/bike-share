@@ -64,7 +64,7 @@ class Trip < ActiveRecord::Base
   end
 
   def self.date_with_highest_trips
-    group("DATE_TRUNC('day',start_date)").count.invert.max
+   group("DATE_TRUNC('day',start_date)").count.invert.max
   end
 
   def self.date_with_lowest_trips
@@ -72,10 +72,26 @@ class Trip < ActiveRecord::Base
   end
 
   def self.weather_on_day_with_most_rides
-    "NEED TO COMPLETE"
+    Trip.joins(:condition).
+    where(start_date: Trip.date_with_highest_trips.last).
+    pluck(:max_temperature_f, 
+          :mean_temperature_f, 
+          :min_temperature_f, 
+          :mean_humidity, 
+          :mean_visibility_miles, 
+          :mean_wind_speed_mph, 
+          :precipitation_inches).first
   end
 
   def self.weather_on_day_with_least_rides
-    "NEED TO COMPLETE"
+    Trip.joins(:condition).
+    where(start_date: Trip.date_with_lowest_trips.last).
+    pluck(:max_temperature_f, 
+          :mean_temperature_f, 
+          :min_temperature_f, 
+          :mean_humidity, 
+          :mean_visibility_miles, 
+          :mean_wind_speed_mph, 
+          :precipitation_inches).first
   end
 end
