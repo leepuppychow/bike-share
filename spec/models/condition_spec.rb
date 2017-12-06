@@ -39,15 +39,19 @@ describe Condition do
     end
 
     it "can find the highest number of rides in a temperature range" do
+      expect(Condition.highest_number_of_rides_in_temperature_range(60.0)).to eq 3
     end
 
     it "can find the lowest number of rides in a temperature range" do
+      expect(Condition.lowest_number_of_rides_in_temperature_range(60.0)).to eq 1
     end
 
     it "can find the maximum temp for all days" do
+      expect(Condition.highest_max_temperature_of_all_days).to eq 79.0
     end
 
     it "can find the minimum temp for all days" do
+      expect(Condition.lowest_max_temperature_of_all_days).to eq 61.0
     end
 
     it "can find the number of trips on days within precipitation range" do

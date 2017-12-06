@@ -19,15 +19,19 @@ class Condition < ActiveRecord::Base
   end
 
   def self.highest_number_of_rides_in_temperature_range(range)
-    number_of_trips_for_days_within_temperature(range).group(:date).count
+    joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max.first
   end
 
-  def self.maximum_temperature_of_all_days
+  def self.lowest_number_of_rides_in_temperature_range(range)
+    joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min.first
+  end
+
+  def self.highest_max_temperature_of_all_days
     maximum(:max_temperature_f)
   end
 
-  def self.minimum_temperature_of_all_days
-    minimum(:min_temperature_f)
+  def self.lowest_max_temperature_of_all_days
+    minimum(:max_temperature_f)
   end
 
 end
