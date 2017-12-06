@@ -48,4 +48,20 @@ class Condition < ActiveRecord::Base
       number_of_days_within_precipitation(range)).round(2)
   end
 
+  def self.highest_number_of_rides_in_precipitation_range(range)
+    joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.max.first
+  end
+
+  def self.lowest_number_of_rides_in_precipitation_range(range)
+    joined.where(precipitation_inches: range..range+0.49).group(:date).count.invert.min.first
+  end
+
+  def self.maximum_precipitation
+    maximum(:precipitation_inches)
+  end
+
+  def self.minimum_precipitation
+    minimum(:precipitation_inches)
+  end
+
 end

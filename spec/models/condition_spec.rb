@@ -67,15 +67,19 @@ describe Condition do
     end
 
     it "can find the highest number of rides in a precipitation range" do
+      expect(Condition.highest_number_of_rides_in_precipitation_range(0.0)).to eq 2
     end
 
     it "can find the lowest number of rides in a precipitation range" do
+      expect(Condition.lowest_number_of_rides_in_precipitation_range(0.0)).to eq 1
     end
 
     it "can find the maximum precipitation for all days" do
+      expect(Condition.maximum_precipitation).to eq 0.65
     end
 
     it "can find the minimum precipitation for all days" do
+      expect(Condition.minimum_precipitation).to eq 0
     end
 
   end
