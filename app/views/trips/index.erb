@@ -17,7 +17,9 @@
     </header>
     <% @trips.each do |trip| %>
       <section class="trip">
-        <a href="/trips/<%=trip.start_date%>"> <%= trip.start_date %> </a></br>
+        <section class="date">
+          <a href="/trips/<%=trip.start_date%>"> <%= date %> </a></br>
+        </section>
         <section class="edit">
           <a href="/trips/<%=trip.id%>/edit"> Edit </a>
         </section>
