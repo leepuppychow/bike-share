@@ -13,11 +13,11 @@ describe Condition do
     Trip.create(duration: 5, start_date: "2017/11/20", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
     Trip.create(duration: 5, start_date: "2017/11/20", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
 
-    Condition.create(date: "2017/12/6", max_temperature_f: 61.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 1)
-    Condition.create(date: "2017/12/5", max_temperature_f: 65.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 1)
-    Condition.create(date: "2017/12/1", max_temperature_f: 66.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 1)
-    Condition.create(date: "2017/11/20", max_temperature_f: 79.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 1)
-    Condition.create(date: "2017/11/18", max_temperature_f: 74.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 1)
+    Condition.create(date: "2017/12/6", max_temperature_f: 61.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0)
+    Condition.create(date: "2017/12/5", max_temperature_f: 65.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0.33)
+    Condition.create(date: "2017/12/1", max_temperature_f: 66.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0.55)
+    Condition.create(date: "2017/11/20", max_temperature_f: 79.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0)
+    Condition.create(date: "2017/11/18", max_temperature_f: 74.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0.65)
   end
 
   describe "Class Methods" do
@@ -27,11 +27,7 @@ describe Condition do
     end
 
     it "can find the number of trips on days within temperature range" do
-<<<<<<< HEAD
-
-=======
       expect(Condition.number_of_trips_for_days_within_temperature(60.0)).to eq 6
->>>>>>> dce3d77304cdad1c9695e966d491b768597355ad
     end
 
     it "can find the number of days within a temperature range" do
