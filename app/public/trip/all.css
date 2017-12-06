@@ -52,7 +52,7 @@ nav li{
   display: inline-block;
   width: 200px;
   height: 100px;
-  margin: 10px;
+  margin: 20px;
 }
 
 .name{
@@ -105,4 +105,11 @@ nav li{
 .delete_button:hover{
   color: orange;
   transition-duration: 0.5s;
+}
+.date{
+  margin-top: 5px;
+}
+.date a{
+  text-decoration: none;
+  color: white;
 }

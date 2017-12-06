@@ -1,5 +1,6 @@
 require 'will_paginate'
 require 'will_paginate/active_record'
+require 'will_paginate/array'
 
 class BikeShareApp < Sinatra::Base
   set :method_override, true
@@ -46,10 +47,9 @@ class BikeShareApp < Sinatra::Base
     redirect '/stations'
   end
 
-#########################
-
   get '/trips' do
     @trips = Trip.paginate(:page=>params[:page], :per_page=>30)
+    @paginate_array = Trip.unique_dates.paginate(:page=>params[:page], :per_page=>30)
     erb :"/trips/index"
   end
 

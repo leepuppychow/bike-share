@@ -94,4 +94,9 @@ class Trip < ActiveRecord::Base
           :mean_wind_speed_mph, 
           :precipitation_inches).first
   end
+
+  def self.unique_dates
+    pluck(:start_date).uniq
+  end
+
 end
