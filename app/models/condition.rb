@@ -14,6 +14,7 @@ class Condition < ActiveRecord::Base
     number_of_trips_for_days_within_temperature(range)).round(2)
   end
 
+
   def self.highest_number_of_rides_in_temperature_range(range)
     number_of_trips_for_days_within_temperature(range).group(:date).count
   end

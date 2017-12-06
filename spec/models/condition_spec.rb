@@ -3,10 +3,37 @@ require 'spec_helper'
 describe Condition do
   before(:each) do
 
+   @condition_1 = Condition.create(date: "29/5/2003",
+                        max_temperature_f: 70.0,
+                        mean_temperature_f: 65.0,
+                        min_temperature_f: 63.0,
+                        mean_humidity: 50.0,
+                        mean_visibility_miles: 3,
+                        mean_wind_speed_mph: 5,
+                        precipitation_inches: 1)
+
+  @condition_2 =  Condition.create(date: "25/5/2003",
+                        max_temperature_f: 60.0,
+                        mean_temperature_f: 65.0,
+                        min_temperature_f: 63.0,
+                        mean_humidity: 50.0,
+                        mean_visibility_miles: 3,
+                        mean_wind_speed_mph: 5,
+                        precipitation_inches: 1)
+
+  @condition_3 =  Condition.create(date: "25/5/2003",
+                        max_temperature_f: 65.0,
+                        mean_temperature_f: 65.0,
+                        min_temperature_f: 63.0,
+                        mean_humidity: 50.0,
+                        mean_visibility_miles: 3,
+                        mean_wind_speed_mph: 5,
+                        precipitation_inches: 1)
   end
 
   describe "Class Methods" do
     it "can find the number of trips on days within temperature range" do
+
     end
 
     it "can find the number of days within a temperature range" do

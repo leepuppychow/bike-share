@@ -6,7 +6,7 @@ require 'csv'
 require 'pry'
 
 station_file = "./db/csv/station.csv"
-trip_file = "./db/csv/trip_fixture.csv"
+trip_file = "./db/csv/trip.csv"
 condition_file = "./db/csv/weather.csv"
 
 stations = CSV.open(station_file, headers: true).readlines
@@ -26,7 +26,6 @@ stations.each do |station|
 end
 
 trips.each do |trip|
-
   Trip.create(duration: trip["duration"],
               start_date: DateTime.strptime(trip["start_date"],"%m/%d/%Y"),
               start_station_name: trip["start_station_name"],
@@ -36,13 +35,10 @@ trips.each do |trip|
               end_station_id: trip["end_station_id"],
               bike_id: trip["bike_id"],
               subscription_type: trip["subscription_type"],
-              zip_code: trip["zip_code"])
-<<<<<<< HEAD
+              zip_code: trip["zip_code"].to_s)
 
-              # condition_id: Condition.find_by(date: trip["start_date"]))
-=======
->>>>>>> 6c180bd916fd72872ee9a8833e2fb41499f1d444
-end
+  end  # condition_id: Condition.find_by(date: trip["start_date"]))
+
 
 conditions.each do |condition|
   unless Condition.find_by(date: DateTime.strptime(condition["date"], "%m/%d/%Y")) != nil
