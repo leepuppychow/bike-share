@@ -35,4 +35,17 @@ class Condition < ActiveRecord::Base
     minimum(:max_temperature_f)
   end
 
+  def self.number_of_trips_for_days_within_precipitation(range)
+    joined.where(precipitation_inches: range..range+0.49).count
+  end
+
+  def self.number_of_days_within_precipitation(range)
+    joined.where(precipitation_inches: range..range+0.49).uniq.pluck(:date).count
+  end
+
+  def self.average_number_of_rides_in_precipitation(range)
+    (number_of_trips_for_days_within_precipitation(range).to_f /
+      number_of_days_within_precipitation(range)).round(2)
+  end
+
 end

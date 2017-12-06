@@ -55,12 +55,15 @@ describe Condition do
     end
 
     it "can find the number of trips on days within precipitation range" do
+      expect(Condition.number_of_trips_for_days_within_precipitation(0.0)).to eq 5
     end
 
     it "can find the number of days within a precipitation range" do
+      expect(Condition.number_of_days_within_precipitation(0.0)).to eq 3
     end
 
     it "can find the average number of rides in a precipitation range" do
+      expect(Condition.average_number_of_rides_in_precipitation(0.0)).to eq 1.67
     end
 
     it "can find the highest number of rides in a precipitation range" do
