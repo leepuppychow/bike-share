@@ -18,7 +18,7 @@
     <% @trips.each do |trip| %>
       <section class="trip">
         <a href="/trips/<%=trip.start_date%>"> <%= trip.start_date %> </a></br>
-        <section class="edit"
+        <section class="edit">
           <a href="/trips/<%=trip.id%>/edit"> Edit </a>
         </section>
         <section class="delete">
@@ -27,7 +27,7 @@
             <button type='submit' class="delete_button">Delete</button>
           </form>
         </section>
-      <section>
+      </section>
     <% end %>
   </div>
 </body>
