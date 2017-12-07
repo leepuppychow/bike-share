@@ -18,7 +18,7 @@
     <% @trips.each do |trip| %>
       <section class="trip">
         <section class="date">
-          <a class="trip_id" href="/trips/<%=trip.start_date%>"> <%= trip.id %> </a></br>
+          <a class="trip_id" href="/trips/<%=trip.id%>"> <%= trip.id %> </a></br>
           <p><%= "#{trip.start_date.month}/#{trip.start_date.day}/#{trip.start_date.day}" %> </p>
         </section>
         <section class="edit">
