@@ -49,7 +49,6 @@ class BikeShareApp < Sinatra::Base
 
   get '/trips' do
     @trips = Trip.paginate(:page=>params[:page], :per_page=>30)
-    @paginate_array = Trip.unique_dates.paginate(:page=>params[:page], :per_page=>30)
     erb :"/trips/index"
   end
 
@@ -106,7 +105,7 @@ class BikeShareApp < Sinatra::Base
     erb :"/conditions/dashboard"
   end
 
-  post '/conditions'  do 
+  post '/conditions'  do
     Condition.create(params[:condition])
     redirect '/conditions'
   end

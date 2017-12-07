@@ -52,7 +52,7 @@ nav li{
   display: inline-block;
   width: 200px;
   height: 100px;
-  margin: 20px;
+  margin: 30px;
 }
 
 .name{
@@ -107,9 +107,21 @@ nav li{
   transition-duration: 0.5s;
 }
 .date{
-  margin-top: 5px;
+  margin-top: 10px;
+  font-size: 20px;
 }
-.date a{
+.trip_id{
+  font-size: 26px;
   text-decoration: none;
   color: white;
+  margin-left: 87px;
+}
+
+.trip_id:hover{
+  color: orange;
+}
+.date p{
+  text-align: center;
+  margin-top: 10px;
+  color:white;
 }
