@@ -9,5 +9,9 @@ describe "When user visits /weather-dashboard path" do
 
     expect(page).to have_content "Weather Dashboard"
     expect(page).to have_link "Home", href="/"
+    expect(page).to have_link "Conditions", href='/conditions'
+    expect(page).to have_link "Trips", href='/trips'
+    expect(page).to have_link "Stations", href='/stations'
+    
   end
 end
