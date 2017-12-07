@@ -1,20 +1,37 @@
-<h1>Weather Conditions</h1>
-<a href="/">Home</a>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/condition/all.css">
+</head>
 
-<ol>
-  <% @conditions.each do |condition| %>
-  <li><a href="/conditions/<%=condition.id%>"><%= condition.date %></a></li>
-  <section class="edit">
+<body>
+  <div class="container">
+    <header>
+      <h1> Weather Conditions </h1>
+      <nav>
+        <ul>
+          <li><a href="/weather-dashboard">Weather Dashboard</a></li>
+          <li> <a href="/conditions/new"> New Condition </a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <% @conditions.each do |condition| %>
+      <section class="condition">
+        <section class="date">
+          <a class="condition_date" href="/conditions/<%=condition.id%>"> <%=condition.date%> </a>
+        </section>
+        <section class="edit">
           <a href="/conditions/<%=condition.id%>/edit"> Edit </a>
-  </section>
-  <section class="delete">
-    <form action='/conditions/<%=condition.id%>' method='POST'>
-      <input type='hidden' name='_method' value='DELETE'>
-      <button type='submit' class="delete_button">delete</button>
-    </form>
-  </section>
-  <%end%>
-</ol>
-
-<a href="/conditions">Forward</a></br>
-<a href="/conditions/new">New</a>
+        </section>
+        <section class="delete">
+          <form action='/conditions/<%=condition.id%>' method='POST'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button type='submit' class="delete_button">Delete</button>
+          </form>
+        </section>
+      </section>
+    <% end %>
+    <footer><%= will_paginate @conditions %></footer>
+  </div>
+</body>

@@ -1,0 +1,132 @@
+body {
+  font-family: "Amazon Ember", Arial,sans-serif;
+}
+
+header{
+  background-color: rgba(0, 126, 128, 0.6);
+  width: 100%;
+  height: 45px;
+}
+header nav{
+  float: right;
+  padding: 10px;
+}
+
+header a {
+  padding-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+header a:hover{
+  color: orange;
+  transition-duration: 0.7s;
+}
+
+header h1{
+  float: left;
+  padding: 10px;
+  color: white;
+  font-size: 26px;
+}
+nav li{
+  display: inline-block;
+  max-width: 100%;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 100%;
+  background: url('../images/sunset.jpg') no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.condition{
+  background: rgba(60,60,60, 0.75);
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin: 30px;
+}
+
+.name{
+  color: white;
+  position: absolute;
+  font-size: 24px;
+  width: 100%;
+  bottom: 50%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.name:hover {
+  color: orange;
+  transition-duration: 1.0s;
+
+}
+.edit {
+  position: absolute;
+  align-self: baseline;
+  bottom: 0;
+  padding: 8px;
+}
+.edit a{
+  text-decoration: none;
+  color: white;
+}
+
+.edit a:hover{
+  color: orange;
+  transition-duration: 0.5s;
+}
+
+.delete{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 8px;
+}
+
+.delete_button{
+  text-decoration: none;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-family: "Amazon Ember", Arial,sans-serif;
+}
+
+.delete_button:hover{
+  color: orange;
+  transition-duration: 0.5s;
+}
+.date{
+  margin-top: 10px;
+  font-size: 20px;
+}
+.condition_date{
+  font-size: 26px;
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+}
+
+.condition_date:hover{
+  color: orange;
+}
+.date p{
+  text-align: center;
+  margin-top: 10px;
+  color:white;
+}
+
+.container footer{
+  color:white;
+}
