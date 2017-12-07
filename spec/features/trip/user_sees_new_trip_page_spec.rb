@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "When user visits '/trips/new' path" do
+
   before(:each) do
     @trip = Trip.create(duration: 35,
       start_date: DateTime.now,
@@ -16,16 +17,15 @@ describe "When user visits '/trips/new' path" do
   it "sees Create Trip header and titled fields for trips info" do
     visit '/trips/new'
 
-    expect(page).to have_content('Create Trip')
-    expect(page).to have_content('Duration:')
+    expect(page).to have_content('New Trip')
+    expect(page).to have_content('Trip Duration:')
     expect(page).to have_content('Start Date:')
     expect(page).to have_content('Start Station Name')
-    expect(page).to have_content('Start Station ID')
-    expect(page).to have_content('End Date:')
     expect(page).to have_content('End Station Name')
-    expect(page).to have_content('End Station ID')
     expect(page).to have_content('Bike ID')
     expect(page).to have_content('Subscription Type:')
+    expect(page).to have_content('Zip Code:')
+    
   end
 
   it "sees links back to Trip Index and Home" do
@@ -38,15 +38,10 @@ describe "When user visits '/trips/new' path" do
   it "has a Submit button that will bring user back to trips index view" do
     visit '/trips/new'
 
-    fill_in "trip[duration]", :with => 201
-    fill_in "trip[subscription_type]", :with => "Customer"
-
     click_button("submit-button")
 
-    expect(current_path).to have_current_path('/trips')
-    expect(page).to have_content(201)
-    expect(page).to have_content("Customer")
+    expect(page).to have_current_path('/trips')
+    expect(page).to have_content("Trips")
+    expect(page).to have_content("Home")
   end
-
-
 end

@@ -1,4 +1,70 @@
-<a href="/trips">Trips Index</a>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/trip/show.css">
+</head>
 
-<p> Trip ID: <%= @trip.id %> </p>
-<p> Trip duration: <%= @trip.duration %> </p>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Trip</h1>
+    <nav>
+      <ul>
+        <li><a href="/trips"> Trips </a></li>
+        <li><a href="/stations"> Stations </a></li>
+        <li><a href="/trips-dashboard"> Trip Dashboard </a></li>
+        <li><a href="/stations-dashboard"> Station Dashboard </a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <table>
+      <tr class="field-name">
+        <th>ID:</th>
+        <th><%=@trip.id%></th>
+      </tr>
+      <tr class="field-name">
+        <th>Duration(minutes):</th>
+        <th><%=@trip.duration%></th>
+      </tr>
+      <tr class="field-name">
+        <th>Start Date:</th>
+        <th><%="#{@trip.start_date.month}/#{@trip.start_date.day}/#{@trip.start_date.year}"%></th>
+      </tr>
+      <tr class="field-name">
+        <th>End Date:</th>
+        <th><%="#{@trip.end_date.month}/#{@trip.end_date.day}/#{@trip.end_date.year}"%></th>
+      </tr>
+      <tr class="field-name">
+        <th >Start Station:</th>
+        <th><%=@trip.start_station_name%></th>
+      </tr>
+      <tr class="field-name">
+        <th >End Station:</th>
+        <th><%=@trip.end_station_name%></th>
+      </tr>
+      <tr class="field-name">
+        <th >Bike ID:</th>
+        <th><%=@trip.bike_id%></th>
+      </tr>
+      <tr class="field-name" >
+        <th>Subscription Type:</th>
+        <th><%=@trip.subscription_type%></th>
+      </tr>
+      <tr class="field-name">
+        <th >Zipcode:</th>
+        <th><%=@trip.zip_code%></th>
+      </tr>
+      <tr class="field-name">
+        <th colspan=2>
+          <form action='/trips/<%=@trip.id%>' method='POST'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button type='submit' class="delete_button">Delete</button>
+          </form>
+        </th>
+      </tr>
+    </table>
+</div>
+
+</body>

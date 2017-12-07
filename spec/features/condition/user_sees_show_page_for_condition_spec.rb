@@ -16,8 +16,11 @@ describe "When user visits /conditions/:id path" do
 
   it "sees specific condition by ID and associated attributes" do
     expect(page.status_code).to eq(200)
-    expect(page).to have_content("2013-09-06")
+    expect(page).to have_content("9/6/2013")
     expect(page).to have_content(35.0)
     expect(page).to have_content(4)
+    expect(page).to have_content(55)
+    expect(page).to have_content(10)
+    expect(page).to have_content(30)
   end
 end

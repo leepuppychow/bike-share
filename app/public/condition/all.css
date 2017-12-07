@@ -2,19 +2,8 @@ body {
   font-family: "Amazon Ember", Arial,sans-serif;
 }
 
-.container{
-  display: flex;
-  flex-flow: row wrap;
-  height: 5000px;
-  justify-content: space-between;
-  background: url('../images/sunset.jpg') no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-}
-
 header{
-  background-color: rgba(0, 126, 128, 0.4);
+  background-color: rgba(0, 126, 128, 0.6);
   width: 100%;
   height: 45px;
 }
@@ -30,7 +19,7 @@ header a {
 }
 
 header a:hover{
-  color: black;
+  color: orange;
   transition-duration: 0.7s;
 }
 
@@ -44,20 +33,33 @@ nav li{
   display: inline-block;
   max-width: 100%;
 }
-.station{
-  background: rgba(60,60,60, 0.3);
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 100%;
+  background: url('../images/sunset.jpg') no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.condition{
+  background: rgba(60,60,60, 0.75);
   position: relative;
-  flex-grow: 1;
   display: inline-block;
-  width: calc(100% * (1/4) - 10px - 1px);
+  width: 200px;
   height: 100px;
-  margin: 10px;
+  margin: 30px;
 }
 
 .name{
   color: white;
   position: absolute;
-  font-size: 20px;
+  font-size: 24px;
   width: 100%;
   bottom: 50%;
   text-align: center;
@@ -65,7 +67,7 @@ nav li{
 }
 
 .name:hover {
-  color: black;
+  color: orange;
   transition-duration: 1.0s;
 
 }
@@ -81,7 +83,7 @@ nav li{
 }
 
 .edit a:hover{
-  color: black;
+  color: orange;
   transition-duration: 0.5s;
 }
 
@@ -97,11 +99,34 @@ nav li{
   background: none;
   color: white;
   border: none;
-  font-size: 12px;
+  font-size: 16px;
   font-family: "Amazon Ember", Arial,sans-serif;
 }
 
 .delete_button:hover{
-  color: black;
+  color: orange;
   transition-duration: 0.5s;
+}
+.date{
+  margin-top: 10px;
+  font-size: 20px;
+}
+.condition_date{
+  font-size: 26px;
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+}
+
+.condition_date:hover{
+  color: orange;
+}
+.date p{
+  text-align: center;
+  margin-top: 10px;
+  color:white;
+}
+
+.container footer{
+  color:white;
 }

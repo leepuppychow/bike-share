@@ -14,6 +14,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a start date" do
       trip = Trip.create(duration: 35,
         start_station_name: "Japan",
@@ -26,6 +27,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a start station name" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -38,6 +40,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a start station ID" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -50,6 +53,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a end date" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -62,6 +66,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a end station name" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -74,6 +79,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a end station id" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -85,6 +91,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a bike id" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -96,6 +103,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a subscription type " do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -158,6 +166,7 @@ describe Trip do
     end
 
     it "can determine the subscription type breakout by type" do
+
       expected = {"Subscriber"=>2, "Customer"=>1}
       expect(Trip.subscription_type_breakout).to eq expected
     end
@@ -167,42 +176,48 @@ describe Trip do
     end
 
     it "can find the percentage of subscriptions by type" do
+
       expected = {"Subscriber"=>66.67, "Customer"=>33.33}
       expect(Trip.percentage_subscription_type).to eq expected
     end
 
     it "can find the date with the most trips" do
-      expect(Trip.date_with_highest_trips).to eq("12/5/2017")
+
+      expect("#{Trip.date_with_highest_trips.last}").to eq("2017-05-12 00:00:00 UTC")
+      expect(Trip.date_with_highest_trips.first).to eq(2)
     end
 
     it "can find the date with the fewest trips" do
-      expect(Trip.date_with_lowest_trips).to eq("5/29/2003")
-    end
 
-    it "can find the weather conditions on the date with the most rides" do
-      weather_1 = Condition.create(date: "12/5/2017",
-                        max_temperature_f: 70.0,
-                        mean_temperature_f: 65.0,
-                        min_temperature_f: 63.0,
-                        mean_humidity: 50.0,
-                        mean_visibility_miles: 3,
-                        mean_wind_speed_mph: 5,
-                        precipitation_inches: 1)
-      expect(Trip.weather_on_day_with_most_rides).to eq weather_1
+      expect(Trip.date_with_lowest_trips.first).to eq(1)
+      expect("#{Trip.date_with_lowest_trips.last}").to eq("2003-05-29 00:00:00 UTC")
     end
-
-    it "can find the weather conditions on the date with the fewest rides" do
-      weather_2 = Condition.create(date: "29/5/2003",
-                        max_temperature_f: 70.0,
-                        mean_temperature_f: 65.0,
-                        min_temperature_f: 63.0,
-                        mean_humidity: 50.0,
-                        mean_visibility_miles: 3,
-                        mean_wind_speed_mph: 5,
-                        precipitation_inches: 1)
-      expect(Trip.weather_on_day_with_least_rides).to eq weather_2
-    end
-
   end
+  describe "Condition joins methods" do 
+    before (:each) do
+      Trip.create(duration: 5, start_date: "2017/12/1", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/12/1", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/12/1", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/12/5", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/12/5", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/12/6", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/11/18", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/11/18", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/11/20", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
+      Trip.create(duration: 5, start_date: "2017/11/20", start_station_name: "Lee", start_station_id: 2, end_date: "2017/1/12", end_station_name: "Lee", end_station_id: 10, bike_id: 15, subscription_type: "Customer", zip_code: 80241)
 
+      Condition.create(date: "2017/12/6", max_temperature_f: 61.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0)
+      Condition.create(date: "2017/12/5", max_temperature_f: 65.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0.33)
+      Condition.create(date: "2017/12/1", max_temperature_f: 66.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0.55)
+      Condition.create(date: "2017/11/20", max_temperature_f: 79.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0)
+      Condition.create(date: "2017/11/18", max_temperature_f: 74.0, mean_temperature_f: 60.0, min_temperature_f: 58.0, mean_humidity: 10.0, mean_visibility_miles: 8.0, mean_wind_speed_mph: 1.0, precipitation_inches: 0.65)
+    end
+      it "can find the weather conditions on the date with the fewest rides" do
+      expect(Trip.weather_on_day_with_least_rides).to eq [61.0, 60.0, 58.0, 10.0, 8, 1, 0.0]
+      end
+      it "can find the weather conditions on the date with the most rides" do
+
+      expect(Trip.weather_on_day_with_most_rides).to eq [66.0, 60.0, 58.0, 10.0, 8, 1, 0.55]
+    end
+  end
 end

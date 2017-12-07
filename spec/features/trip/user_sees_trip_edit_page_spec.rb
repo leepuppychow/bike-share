@@ -53,5 +53,4 @@ describe "when user visits /trips/:id/edit path" do
     expect(page).to have_content(55)
     expect(current_path).to eq("/trips/1")
   end
-
 end

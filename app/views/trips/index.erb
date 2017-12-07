@@ -1,15 +1,37 @@
-<h1> All Trips </h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/trip/all.css">
+</head>
 
-<% @trips.each do |trip| %>
-  <p> <a href="/trips/<%=trip.id%>"> <%= trip.id %> </a> </p>
-  <p> <a href="/trips/<%=trip.id%>"> <%= trip.bike_id %> </a> </p>
-  <a href="/trips/<%=trip.id%>/edit"> Edit </a>
-  <form action='/trips/<%=trip.id%>' method='POST'>
-    <input type='hidden' name='_method' value='DELETE'>
-    <input type='submit' value='delete'/>
-  </form>
-<% end %>
-
-<a href="/trips-dashboard"> Trip Dashboard </a> </br>
-<a href="/trips/new"> New Trip </a> </br>
-<a href="/">Back to Homepage</a>
+<body>
+  <div class="container">
+    <header>
+      <h1> Trips </h1>
+      <nav>
+        <ul>
+          <li><a href="/trips-dashboard">Trip Dashboard</a></li>
+          <li> <a href="/trips/new"> New Trip </a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <% @trips.each do |trip| %>
+      <section class="trip">
+        <section class="date">
+          <a class="trip_id" href="/trips/<%=trip.id%>"> <%= trip.id %> </a></br>
+          <p><%= "#{trip.start_date.month}/#{trip.start_date.day}/#{trip.start_date.day}" %> </p>
+        </section>
+        <section class="edit">
+          <a href="/trips/<%=trip.id%>/edit"> Edit </a>
+        </section>
+        <section class="delete">
+          <form action='/trips/<%=trip.id%>' method='POST'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button type='submit' class="delete_button">Delete</button>
+          </form>
+        </section>
+      </section>
+    <% end %>
+    <footer><%= will_paginate @trips %></footer>
+  </div>
+</body>

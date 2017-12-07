@@ -1,7 +1,9 @@
 require 'will_paginate'
 require 'will_paginate/active_record'
+require 'will_paginate/array'
 
 class BikeShareApp < Sinatra::Base
+  configure { register WillPaginate::Sinatra }
   set :method_override, true
 
   get '/' do
@@ -46,8 +48,6 @@ class BikeShareApp < Sinatra::Base
     redirect '/stations'
   end
 
-#########################
-
   get '/trips' do
     @trips = Trip.paginate(:page=>params[:page], :per_page=>30)
     erb :"/trips/index"
@@ -83,6 +83,8 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips-dashboard' do
+    @trips_most = Trip.weather_on_day_with_most_rides
+    @trips_least = Trip.weather_on_day_with_least_rides
     erb :"/trips/dashboard"
   end
 
@@ -104,7 +106,7 @@ class BikeShareApp < Sinatra::Base
     erb :"/conditions/dashboard"
   end
 
-  post '/conditions'  do 
+  post '/conditions'  do
     Condition.create(params[:condition])
     redirect '/conditions'
   end

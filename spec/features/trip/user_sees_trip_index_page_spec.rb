@@ -1,14 +1,16 @@
 require 'spec_helper'
 
 describe "when user visits /trips path" do
+  before(:each) do
+     visit '/trips'
+  end
   it "sees a trip index page with all trip IDs listed" do
-    visit '/trips'
+  
 
-    expect(page).to have_content("All Trips")
+    expect(page).to have_content("Trips")
   end
 
   it "sees links to trip dashboard, new trip, and homepage" do
-    visit '/trips'
 
     expect(page).to have_link("Trip Dashboard", :href=>'/trips-dashboard')
     expect(page).to have_link("New Trip", :href=>'/trips/new')
@@ -28,9 +30,7 @@ describe "when user visits /trips path" do
                     )
     visit '/trips'
 
-    expect(page).to have_content(trip.bike_id)
     expect(page).to have_link("Edit", :href=>"/trips/#{trip.id}/edit")
-    expect {click_button("delete")}.to change(Trip, :count).by(-1)
+    expect {click_button("Delete")}.to change(Trip, :count).by(-1)
   end
-
 end

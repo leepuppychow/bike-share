@@ -21,15 +21,8 @@ describe "when user visits /conditions path" do
 
     visit '/conditions'
 
-    expect(page).to have_selector('ol li', count: 30)
+    expect(page).to have_selector('.condition', count: 30)
     expect(page).to have_content("2017")
-    expect(page).to have_link("Forward")
-    expect(page).to have_button("delete")
-    # within(".delete") do
-    #   first('.delete').click_link('delete_button')
-    # end
-
-    # expect(current_path).to eq('/conditions')
-    # expect {click_button(first("destroy"))}.to change(Condition, :count).by(-1)
+    expect(page).to have_button("Delete")
   end
 end

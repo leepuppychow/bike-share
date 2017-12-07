@@ -1,9 +1,155 @@
-<h1> Weather Dashboard </h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/condition/weather_dashboard.css">
+</head>
 
-<a href='/'>Home</a>
-<a href='/conditions'>Weather Index</a>
-<a href='/stations'>Stations</a>
-<a href='/trips'>Trips</a>
+<body>
+
+<div class="container">
+    <header>
+      <h1>Weather Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="/conditions"> Conditions </a></li>
+          <li><a href="/trips"> Trips </a></li>
+          <li><a href="/stations"> Stations </a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <table class="temp">
+      <tr>
+        <th> Max Temperature </th>
+        <th> Average Number of Rides: </th>
+        <th> Highest Number of Rides: </th>
+        <th> Lowest Number of Rides: </th>
+      </tr>
+      <tr>
+        <th> 45-54 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(45) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(45) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(45) %></th>
+      </tr>
+      <tr>
+        <th> 55-64 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(55) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(55) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(55) %></th>
+      </tr>
+      <tr>
+        <th> 65-74 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(65) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(65) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(65) %></th>
+      </tr>
+      <tr>
+        <th> 75-84 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(75) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(75) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(75) %></th>
+      </tr>
+      <tr>
+        <th> 85-94 Degrees F </th>
+        <th> <%= Condition.average_number_of_rides_in_temperature_range(85) %></th>
+        <th> <%= Condition.highest_number_of_rides_in_temperature_range(85) %></th>
+        <th> <%= Condition.lowest_number_of_rides_in_temperature_range(85) %></th>
+      </tr>
+    </table>
+    <table class="precipitation">
+      <tr>
+        <th>Precipitation</th>
+        <th> Average Number of Rides: </th>
+        <th> Highest Number of Rides: </th>
+        <th> Lowest Number of Rides: </th>
+      </tr>
+      <tr>
+        <th> 0 - .49(in)</th>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(0)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(0)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(0)%></th>        
+      </tr>
+      <tr>
+        <th> .5 - .99(in)</th>
+      <%if Condition.number_of_days_within_precipitation(0.5) != 0  %>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(0.5)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(0.5)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(0.5)%></th>     
+      <% else %>
+        <th> <%=0%></th>
+        <th> <%=0%></th>
+        <th> <%=0%></th>     
+      <% end %>
+      </tr>
+      <tr>
+        <th> 1.0 - 1.49(in)</th>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(1)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(1)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(1)%></th>        
+      </tr>
+      <tr>
+        <th> 1.5 - 1.99(in)</th>
+      <%if Condition.number_of_days_within_precipitation(0.5) != 0  %>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(1.5)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(1.5)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(1.5)%></th>
+        <% else %>
+        <th> <%=0%></th>
+        <th> <%=0%></th>
+        <th> <%=0%></th>     
+      <% end %>        
+      </tr>
+      <tr>
+        <th> 2.0 - 2.49 (in)</th>
+      <%if Condition.number_of_days_within_precipitation(0.5) != 0  %>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(2)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(2)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(2)%></th>
+        <% else %>
+        <th> <%=0%></th>
+        <th> <%=0%></th>
+        <th> <%=0%></th>     
+      <% end %>                
+      </tr>
+      <tr>
+        <th> 2.5 - 2.99(in)</th>
+      <%if Condition.number_of_days_within_precipitation(0.5) != 0  %>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(2.5)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(2.5)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(2.5)%></th>  
+         <% else %>
+        <th> <%=0%></th>
+        <th> <%=0%></th>
+        <th> <%=0%></th>     
+      <% end %>                      
+      </tr>
+      <tr>
+        <th> 3.0 - 3.49(in)</th>
+        <%if Condition.number_of_days_within_precipitation(0.5) != 0  %>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(3)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(3)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(3)%></th>  
+        <% else %>
+        <th> <%=0%></th>
+        <th> <%=0%></th>
+        <th> <%=0%></th>     
+      <% end %>              
+      </tr>
+      <tr>
+        <th>3.5 - 3.99(in)</th>
+        <%if Condition.number_of_days_within_precipitation(0.5) != 0  %>
+        <th> <%=Condition.average_number_of_rides_in_precipitation(3.5)%></th>
+        <th> <%=Condition.highest_number_of_rides_in_precipitation_range(3.5)%></th>
+        <th> <%=Condition.lowest_number_of_rides_in_precipitation_range(3.5)%></th>  
+         <% else %>
+        <th> <%=0%></th>
+        <th> <%=0%></th>
+        <th> <%=0%></th>     
+      <% end %>                  
+      </tr>
+    </table>
+ </div>
+</body>
+
 
 
 Number of trips based on temperature

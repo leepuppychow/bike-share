@@ -33,10 +33,10 @@ describe "when user visits /stations/:id path" do
     expect(page).to have_content "City:"
     expect(page).to have_content "Dock Count:"
     expect(page).to have_content "Installation Date"
-    expect(page).to have_content "Number of starting rides:"
-    expect(page).to have_content "Number of ending rides:"
-    expect(page).to have_content "Most frequent destination station:"
-    expect(page).to have_content "Most frequent bike ID starting here:"
+    expect(page).to have_content "Number of Starting Rides:"
+    expect(page).to have_content "Number of Ending Rides:"
+    expect(page).to have_content "Most Frequent Destination Station:"
+    expect(page).to have_content "Most Frequent Bike ID Starting Here:"
   end
 
   it "has appropriate date loaded" do 
