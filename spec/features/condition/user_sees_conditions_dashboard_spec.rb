@@ -6,11 +6,9 @@ describe "When user visits /weather-dashboard path" do
   end
 
   it "sees header with welcome message and appropriate links" do
+
     expect(page).to have_content "Weather Dashboard"
     expect(page).to have_link "Home", href="/"
-    expect(page).to have_link "Weather Index", href ="/conditions"
-    expect(page).to have_link "Stations", href='/stations'
-    expect(page).to have_link "Trips", href='/trips'
   end
 
   it "sees data tables with appropriate labels for fields" do

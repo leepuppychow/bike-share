@@ -64,7 +64,6 @@ header a:hover{
 .field-name:hover{
   background: rgba(60,60,60, 0.7);
 }
-
 .delete_button{
   margin-top: 10px;
   padding: 10px;
@@ -82,4 +81,3 @@ header a:hover{
   background: rgba(60,60,60, 0.9);
   transition-duration: 0.2s;
 }
-

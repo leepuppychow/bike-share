@@ -16,8 +16,8 @@ describe "When user visits '/trips/new' path" do
   it "sees Create Trip header and titled fields for trips info" do
     visit '/trips/new'
 
-    expect(page).to have_content('Create Trip')
-    expect(page).to have_content('Duration:')
+    expect(page).to have_content('New Trip')
+    expect(page).to have_content('Trip Duration:')
     expect(page).to have_content('Start Date:')
     expect(page).to have_content('Start Station Name')
     expect(page).to have_content('Start Station ID')
@@ -39,7 +39,7 @@ describe "When user visits '/trips/new' path" do
     visit '/trips/new'
 
     fill_in "trip[duration]", :with => 201
-    fill_in "trip[subscription_type]", :with => "Customer"
+    # fill_in "trip[subscription_type]", :with => "Customer"
 
     click_button("submit-button")
 
