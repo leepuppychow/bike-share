@@ -13,11 +13,8 @@ describe "When user visits /conditions/:id/edit path" do
     visit '/conditions/1/edit'
   end
 
-  it "sees an Edit Condition page with appropriate header and links" do
+  it "sees an Edit Condition page with appropriate header" do
     expect(page).to have_content "Edit Condition"
-    expect(page).to have_link("Home", :href=>'/')
-    expect(page).to have_link("Conditions", :href=>'/conditions')
-    expect(page).to have_link("Weather Dashboard", :href=>'/weather-dashboard')
   end
 
   it "sees a table with column field describing each input field" do

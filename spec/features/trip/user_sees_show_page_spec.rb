@@ -18,7 +18,7 @@ describe "when user visits /trips/:id show page" do
 
     expect(page).to have_content("Duration")
     expect(page).to have_content(35)
-    expect(page).to have_content("Start Station ID")
+    expect(page).to have_content("Start Station")
     expect(page).to have_content(5)
     expect(page).to have_content("Subscription Type")
     expect(page).to have_content("Subscriber")
