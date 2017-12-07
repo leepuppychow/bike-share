@@ -39,7 +39,7 @@ header a:hover{
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
-  height: 300%;
+  height: 350%;
   width: 100%;
   justify-content: center;
   background: url('../images/beach.jpg') no-repeat;

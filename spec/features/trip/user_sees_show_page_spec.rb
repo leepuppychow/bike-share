@@ -33,5 +33,4 @@ describe "when user visits /trips/:id show page" do
     expect(page).to have_link("Station Dashboard", :href=>'/stations-dashboard')
     expect(page).to have_link("Home", :href=>'/')
   end
-
 end

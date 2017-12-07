@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "When user visits '/trips/new' path" do
+
   before(:each) do
     @trip = Trip.create(duration: 35,
       start_date: DateTime.now,
@@ -43,6 +44,4 @@ describe "When user visits '/trips/new' path" do
     expect(page).to have_content("Trips")
     expect(page).to have_content("Home")
   end
-
-
 end

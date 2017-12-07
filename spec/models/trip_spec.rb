@@ -14,6 +14,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a start date" do
       trip = Trip.create(duration: 35,
         start_station_name: "Japan",
@@ -26,6 +27,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a start station name" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -38,6 +40,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a start station ID" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -50,6 +53,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a end date" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -62,6 +66,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a end station name" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -74,6 +79,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a end station id" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -85,6 +91,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a bike id" do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -96,6 +103,7 @@ describe Trip do
 
       expect(trip).to be_invalid
     end
+
     it "is invalid without a subscription type " do
       trip = Trip.create(duration: 35,
         start_date: DateTime.now,
@@ -158,6 +166,7 @@ describe Trip do
     end
 
     it "can determine the subscription type breakout by type" do
+
       expected = {"Subscriber"=>2, "Customer"=>1}
       expect(Trip.subscription_type_breakout).to eq expected
     end
@@ -167,22 +176,22 @@ describe Trip do
     end
 
     it "can find the percentage of subscriptions by type" do
+
       expected = {"Subscriber"=>66.67, "Customer"=>33.33}
       expect(Trip.percentage_subscription_type).to eq expected
     end
 
     it "can find the date with the most trips" do
+
       expect("#{Trip.date_with_highest_trips.last}").to eq("2017-05-12 00:00:00 UTC")
       expect(Trip.date_with_highest_trips.first).to eq(2)
-
     end
 
     it "can find the date with the fewest trips" do
+
       expect(Trip.date_with_lowest_trips.first).to eq(1)
       expect("#{Trip.date_with_lowest_trips.last}").to eq("2003-05-29 00:00:00 UTC")
-      
     end
-
   end
   describe "Condition joins methods" do 
     before (:each) do

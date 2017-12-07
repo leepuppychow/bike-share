@@ -80,20 +80,41 @@
         <% end  %>
       </tr>
     </table>
+     <table>
+      <tr>
+        <th></th>
+        <th>Max Temp(F)</th>
+        <th>Mean Temp(F)</th>
+        <th>Min Temp(F)</th>
+        <th>Mean Humidity</th>
+        <th>Mean Visibility(miles)</th>
+        <th>Mean Wind Speed(mph)</th>
+        <th>Precipitation(in)</th>
+      </tr>
+      <tr>
+        <th>Weather for day with fewest trips:</th>
+        <% Trip.weather_on_day_with_least_rides.each do |weather_category| %>
+          <th><%=weather_category%></th>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Weather for day with most trips:</th>
+        <% Trip.weather_on_day_with_most_rides.each do |weather_category| %>
+          <th><%=weather_category%></th>
+        <% end %>
+      </tr>
+    </table>
 
     <table>
       <tr>
         <th colspan=2>Month-month breakdown of total rides:</th>
-
-        <% Trip.total_rides_per_month.each do |monthcount| %>
+        <% Trip.total_rides_per_month.each do |monthcount|%>
         <tr>
           <th><%= monthcount.first%></th>
           <th><%=monthcount.last%></th>
         </tr>
-        <% end  %>
+        <%end%>
       </tr>
-
     </table>
   </div>
-
 </body>

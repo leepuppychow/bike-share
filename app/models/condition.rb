@@ -9,7 +9,7 @@ class Condition < ActiveRecord::Base
                         :mean_visibility_miles,
                         :mean_wind_speed_mph,
                         :precipitation_inches
-                        
+
   def self.joined
     joins(:trip_dates)
   end
@@ -32,20 +32,12 @@ class Condition < ActiveRecord::Base
     if joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max
       joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max.first
     end
-
-    # if joined.where(max_temperature_f: range..range + 9).count != 0
-    #   joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.max.first
-    # end
   end
 
   def self.lowest_number_of_rides_in_temperature_range(range)
     if joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min
       joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min.first
     end
-
-    # if joined.where(max_temperature_f: range..range + 9).count != 0 
-    #   joined.where(max_temperature_f: range..range + 9).group(:start_date).count.invert.min.first
-    # end
   end
 
   def self.highest_max_temperature_of_all_days
