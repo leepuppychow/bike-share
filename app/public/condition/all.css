@@ -39,7 +39,7 @@ nav li{
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  height: 100%;
+  height: auto;
   background: url('../images/sunset.jpg') no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -48,7 +48,7 @@ nav li{
 
 
 .condition{
-  background: rgba(60,60,60, 0.75);
+  background: rgba(0, 126, 128, 0.75);
   position: relative;
   display: inline-block;
   width: 200px;
@@ -115,7 +115,7 @@ nav li{
   font-size: 26px;
   text-decoration: none;
   color: white;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .condition_date:hover{
@@ -129,4 +129,5 @@ nav li{
 
 .container footer{
   color:white;
+  width: 100%;
 }

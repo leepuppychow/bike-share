@@ -33,9 +33,8 @@ header h1{
   flex-flow: row wrap;
   align-content: flex-start;
   width: 100%;
-  height: 300%;
+  height: auto;
   background: url('../images/beach.jpg') no-repeat;
-  overflow: auto;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
