@@ -46,7 +46,8 @@ nav li{
   background-size: cover;
 }
 
-.trip{
+
+.condition{
   background: rgba(60,60,60, 0.75);
   position: relative;
   display: inline-block;
@@ -110,14 +111,14 @@ nav li{
   margin-top: 10px;
   font-size: 20px;
 }
-.trip_id{
+.condition_date{
   font-size: 26px;
   text-decoration: none;
   color: white;
-  margin-left: 87px;
+  margin-left: 10px;
 }
 
-.trip_id:hover{
+.condition_date:hover{
   color: orange;
 }
 .date p{
@@ -125,6 +126,7 @@ nav li{
   margin-top: 10px;
   color:white;
 }
+
 .container footer{
   color:white;
 }

@@ -1,6 +1,22 @@
-<header>
-  <h1> Edit Conditions</h1>
-</header>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/condition/edit.css">
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <h1>Edit Condition</h1>
+    <nav>
+      <ul>
+        <li><a href="/conditions"> Conditions </a></li>
+        <li><a href="/weather-dashboard"> Weather Dashboard </a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <form action="/conditions/<%=@condition.id%>" method="POST">
     <table>
       <tr>
@@ -35,7 +51,13 @@
         <th class="field-name">Precipitation(inches):</th>
         <th><input type="number" name="condition[precipitation_inches]" value="<%=@condition.precipitation_inches%>"/></th>
       </tr>
-    <table>
-    <input type="hidden" name="_method" value="PUT"/>
-    <input id="submit-button" type="submit"/>
-  </form>
+      <tr>
+        <th colspan=2>
+          <input type="hidden" name="_method" value="PUT"/>
+          <input id="submit-button" type="submit"/>
+        </th>
+      </tr>
+  <table>
+</div>
+
+</body>

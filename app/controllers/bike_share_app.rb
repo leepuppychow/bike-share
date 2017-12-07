@@ -3,6 +3,7 @@ require 'will_paginate/active_record'
 require 'will_paginate/array'
 
 class BikeShareApp < Sinatra::Base
+  configure { register WillPaginate::Sinatra }
   set :method_override, true
 
   get '/' do
