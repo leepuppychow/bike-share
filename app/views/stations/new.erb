@@ -1,15 +1,47 @@
-<form action="/stations" method="POST">
-  <h1> Create a Station </h1>
-  <p> Station Name: </p>
-  <input type="text" name="station[name]"/></br>
-  <p> Number of Docks: </p>
-  <input type="number" name="station[dock_count]"/></br>
-  <p> City: </p>
-  <input type="text" name="station[city]"/></br>
-  <p> Installation Date: </p>
-  <input type="date" name="station[installation_date]"/></br>
-  <input type="submit"/>
-</form>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/station/new.css">
+</head>
 
-<a href="/stations">Station Index</a></br>
-<a href="/">Home</a>
+<body>
+
+<div class="container">
+  <header>
+    <h1>New Station</h1>
+    <nav>
+      <ul>
+        <li><a href="/stations"> Stations </a></li>
+        <li><a href="/stations-dashboard"> Station Dashboard </a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <form action="/stations" method="POST">
+    <table>
+      <tr>
+        <th class="field-name">Station Name:</th>
+        <th><input type="text" name="station[name]"/></th>
+      </tr>
+      <tr>
+        <th class="field-name">Number of Docks:</th>
+        <th><input type="number" name="station[dock_count]"/></th>
+      </tr>
+      <tr>
+        <th class="field-name">City:</th>
+        <th><input type="text" name="station[city]"/></th>
+      </tr>
+      <tr>
+        <th class="field-name">Installation Date:</th>
+        <th><input type="date" name="station[installation_date]"/></th>
+      </tr>
+      <tr>
+        <th colspan=2>
+          <input id="submit-button" type="submit"/>
+        </th>
+      </tr>
+  </table>
+  </form>
+</div>
+
+</body>
