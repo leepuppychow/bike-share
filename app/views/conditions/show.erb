@@ -1,10 +1,75 @@
-<a href="/conditions">Conditions Index</a>
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/condition/show.css">
+</head>
 
-<h1> <%= @condition.date %> </h1>
-<p> <%= @condition.max_temperature_f %> </p>
-<p> <%= @condition.mean_temperature_f %> </p>
-<p> <%= @condition.min_temperature_f %> </p>
-<p> <%= @condition.mean_humidity %> </p>
-<p> <%= @condition.mean_visibility_miles %> </p>
-<p> <%= @condition.mean_wind_speed_mph %> </p>
-<p> <%= @condition.precipitation_inches %> </p>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Weather</h1>
+    <nav>
+      <ul>
+        <li><a href="/conditions">Weather Conditions</a></li>
+        <li><a href="/weather-dashboard"> Weather Dashboard </a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <p> <%=  %> </p>
+  <p> <%=  %> </p>
+  <p> <%= @condition.mean_humidity %> </p>
+  <p> <%= @condition.mean_visibility_miles %> </p>
+  <p> <%= @condition.mean_wind_speed_mph %> </p>
+  <p> <%= @condition.precipitation_inches %> </p>
+
+    <table>
+      <tr class="field-name">
+        <th>Date:</th>
+        <th><%="#{@condition.end_date.month}/#{@condition.end_date.day}/#{@condition.end_date.year}"%></th>
+      </tr>
+      <tr class="field-name">
+        <th>Max Temp(F):</th>
+        <th><%= @condition.max_temperature_f %></th>
+      </tr>
+      <tr class="field-name">
+        <th>Mean Temp(F):</th>
+        <th><%=@condition.mean_temperature_f%></th>
+      </tr>
+      <tr class="field-name">
+        <th>Min Temp(F):</th>
+        <th><%=@condition.min_temperature_f%></th>
+      </tr>
+      <tr class="field-name">
+        <th >Start Station:</th>
+        <th><%=@trip.start_station_name%></th>
+      </tr>
+      <tr class="field-name">
+        <th >End Station:</th>
+        <th><%=@trip.end_station_name%></th>
+      </tr>
+      <tr class="field-name">
+        <th >Bike ID:</th>
+        <th><%=@trip.bike_id%></th>
+      </tr>
+      <tr class="field-name" >
+        <th>Subscription Type:</th>
+        <th><%=@trip.subscription_type%></th>
+      </tr>
+      <tr class="field-name">
+        <th >Zipcode:</th>
+        <th><%=@trip.zip_code%></th>
+      </tr>
+      <tr class="field-name">
+        <th colspan=2>
+          <form action='/trips/<%=@trip.id%>' method='POST'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button type='submit' class="delete_button">Delete</button>
+          </form>
+        </th>
+      </tr>
+    </table>
+</div>
+
+</body>
