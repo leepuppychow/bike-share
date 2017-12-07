@@ -10,9 +10,4 @@ describe "When user visits /weather-dashboard path" do
     expect(page).to have_content "Weather Dashboard"
     expect(page).to have_link "Home", href="/"
   end
-
-  it "sees data tables with appropriate labels for fields" do
-    expect(page).to have_content "Number of trips based on temperature"
-    expect(page).to have_content "Number of trips based on precipitation"
-  end
 end
