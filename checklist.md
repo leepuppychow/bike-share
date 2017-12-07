@@ -1,10 +1,10 @@
 ### General 
 * [x] Navigation to all links
-* [ ] Simple styling present
+* [x] Simple styling present
 
 ### Iteration 1
 
-* [x ] See all stations 
+* [x] See all stations 
 * [x] See one station 
 * [x] Create a new station 
 * [x] Update a station 
@@ -20,7 +20,7 @@
 On `/station-dashboard`:
 
 * [x] Total count of stations
-* [ ] Average bikes available per station (based on docks).
+* [x] Average bikes available per station (based on docks).
 * [x] Most bikes available at a station (based on docks).
 * [x] Station(s) where the most bikes are available (based on docks).
 * [x] Fewest bikes available at a station (based on docks).
@@ -30,12 +30,12 @@ On `/station-dashboard`:
 
 ### Iteration 4
 
-* [ ] See all trips 
+* [x] See all trips 
 * [x] See one trip
 * [x] Create a new trip 
-* [ ] Update a trip 
+* [x] Update a trip 
 * [x] Delete a trip (from either index or show)
-* [ ] All attributes (except zip code) must be present: duration, start date, start station, end date, end station, bike ID, subscription type)
+* [x] All attributes (except zip code) must be present: duration, start date, start station, end date, end station, bike ID, subscription type)
 * [x] Trips are paginated in groups of 30 
 
 ### Iteration 5
@@ -87,11 +87,11 @@ On an individual station show page the additional information should be present:
 On `/weather-dashboard`:
 
 * [x] Breakout of average number of rides, highest number of rides, and lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees)
-* [ ] Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments.
+* [x] Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments.
 * [ ] Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments.
 * [ ] Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean visibility in miles in four mile increments.
 
 Additional information on the `trip-dashboard`:
 
-* [ ] Weather on the day with the highest rides.
-* [ ] Weather on the day with the lowest rides.
+* [x] Weather on the day with the highest rides.
+* [x] Weather on the day with the lowest rides.
