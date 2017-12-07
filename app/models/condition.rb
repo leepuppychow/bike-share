@@ -1,6 +1,15 @@
 class Condition < ActiveRecord::Base
   has_many :trip_dates, :class_name => "Trip", :foreign_key => "start_date", :primary_key => "date"
 
+  validates_presence_of :date, 
+                        :max_temperature_f, 
+                        :mean_temperature_f,
+                        :min_temperature_f,
+                        :mean_humidity,
+                        :mean_visibility_miles,
+                        :mean_wind_speed_mph,
+                        :precipitation_inches
+                        
   def self.joined
     joins(:trip_dates)
   end

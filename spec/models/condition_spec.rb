@@ -86,7 +86,6 @@ describe Condition do
 
   describe "Validations" do
     it "is invalid without a date" do
-      skip
       weather = Condition.create(
         max_temperature_f: 70.0,
         mean_temperature_f: 65.0,
@@ -97,6 +96,110 @@ describe Condition do
         precipitation_inches: 1)
 
       expect(weather).to be_invalid
+    end
+
+    it "is invalid without max_temperature_f" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        mean_temperature_f: 65.0,
+        min_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_visibility_miles: 3,
+        mean_wind_speed_mph: 5,
+        precipitation_inches: 1)
+
+        expect(weather).to be_invalid
+    end
+
+    it "is invalid without mean_temperature_f" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        min_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_visibility_miles: 3,
+        mean_wind_speed_mph: 5,
+        precipitation_inches: 1)
+
+        expect(weather).to be_invalid
+    end
+
+    it "is invalid without min_temperature_f" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        mean_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_visibility_miles: 3,
+        mean_wind_speed_mph: 5,
+        precipitation_inches: 1)
+
+        expect(weather).to be_invalid
+    end
+
+     it "is invalid without min_temperature_f" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        mean_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_visibility_miles: 3,
+        mean_wind_speed_mph: 5,
+        precipitation_inches: 1)
+
+        expect(weather).to be_invalid
+    end
+
+      it "is invalid without mean humidity" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        mean_temperature_f: 63.0,
+        min_temperature_f: 63.0,
+        mean_visibility_miles: 3,
+        mean_wind_speed_mph: 5,
+        precipitation_inches: 1)
+        
+        expect(weather).to be_invalid
+    end
+
+    it "is invalid without mean visibility" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        mean_temperature_f: 63.0,
+        min_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_wind_speed_mph: 5,
+        precipitation_inches: 1)
+        
+        expect(weather).to be_invalid
+    end
+
+    it "is invalid without mean wind" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        mean_temperature_f: 63.0,
+        min_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_visibility_miles: 3,
+        precipitation_inches: 1)
+        
+        expect(weather).to be_invalid
+    end
+
+     it "is invalid without precipitation" do
+      weather = Condition.create(
+        date: "2017/12/6",
+        max_temperature_f: 65.0,
+        mean_temperature_f: 63.0,
+        min_temperature_f: 63.0,
+        mean_humidity: 50.0,
+        mean_visibility_miles: 3,
+        mean_wind_speed_mph: 5)
+        
+        expect(weather).to be_invalid
     end
   end
 
